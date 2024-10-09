@@ -219,6 +219,7 @@
           <option value="Chrome">Chrome</option>
           <option value="Firefox">Firefox</option>
           <option value="Safari">Safari</option>
+          <option value="Edge">Edge</option>
         </select>
       </div>
 
@@ -227,11 +228,11 @@
           <div class="setting-title">sec-ch-ua</div>
           <div class="setting-description">Valeur pour sec-ch-ua</div>
         </div>
-        <select id="secChUa" class="select-input">
+        <select id="secChUa" class="select-input" disabled>
           <option value="random">Aléatoire</option>
           <option value='""'>Vide</option>
-          <option value='"Chromium";v="90"'>Chromium 90</option>
-          <option value='"Not A;Brand";v="99"'>Not A Brand 99</option>
+          <option value='"Chromium";v="90"'>Chromium</option>
+          <option value='"Not A;Brand";v="99"'>Not A Brand</option>
         </select>
       </div>
 
@@ -242,7 +243,7 @@
             Indique si l'appareil est mobile
           </div>
         </div>
-        <select id="secChUaMobile" class="select-input">
+        <select id="secChUaMobile" class="select-input" disabled>
           <option value="random">Aléatoire</option>
           <option value="?0">Non mobile</option>
           <option value="?1">Mobile</option>
@@ -254,7 +255,7 @@
           <div class="setting-title">sec-ch-ua-platform</div>
           <div class="setting-description">Plateforme de l'utilisateur</div>
         </div>
-        <select id="secChUaPlatform" class="select-input">
+        <select id="secChUaPlatform" class="select-input" disabled>
           <option value="random">Aléatoire</option>
           <option value='""'>Vide</option>
           <option value='"Windows"'>Windows</option>
@@ -268,7 +269,7 @@
           <div class="setting-title">sec-ch-ua-full-version</div>
           <div class="setting-description">Version complète de l'UA</div>
         </div>
-        <input type="text" id="secChUaFullVersion" class="text-input" placeholder='Ex: "90.0.4430.85"' />
+        <input type="text" id="secChUaFullVersion" class="text-input" placeholder='Ex: "90.0.4430.85"' disabled />
       </div>
 
       <div class="setting-item">
@@ -278,7 +279,7 @@
             Version de la plateforme de l'utilisateur
           </div>
         </div>
-        <input type="text" id="secChUaPlatformVersion" class="text-input" placeholder='Ex: "10.0.19041"' />
+        <input type="text" id="secChUaPlatformVersion" class="text-input" placeholder='Ex: "10.0.19041"' disabled />
       </div>
 
       <div class="setting-item">

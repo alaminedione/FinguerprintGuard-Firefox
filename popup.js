@@ -14,7 +14,7 @@ let currentSettings = {};
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     // Récupération de l'état actuel depuis le background script
-    const settings = await chrome.runtime.sendMessage({ type: 'getStatus' });
+    const settings = await browser.runtime.sendMessage({ type: 'getStatus' });
     updateInterface(settings);
 
     // Masquer le loading
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 //gerer les paramètres de l'extension
 document.getElementById('openSettings').addEventListener('click', () => {
-  chrome.runtime.openOptionsPage();
+  browser.runtime.openOptionsPage();
 });
 
 
@@ -54,7 +54,7 @@ for (const elementId of Object.keys(settingsMappings)) {
 
       try {
         // Envoi du changement au background script
-        await chrome.runtime.sendMessage({
+        await browser.runtime.sendMessage({
           type: 'updateSetting',
           setting,
           value
@@ -140,13 +140,13 @@ async function reloadAllTabs() {
     button.classList.add('loading');
 
     // Récupérer tous les onglets
-    const tabs = await chrome.tabs.query({});
+    const tabs = await browser.tabs.query({});
 
     // Recharger chaque onglet
     for (const tab of tabs) {
-      if (!tab.url.startsWith('chrome://')) {
+      if (!tab.url.startsWith('about:')) {
         try {
-          await chrome.tabs.reload(tab.id);
+          await browser.tabs.reload(tab.id);
         } catch (error) {
           console.error(`Erreur lors du rechargement de l'onglet ${tab.id}:`, error);
         }
@@ -182,8 +182,5 @@ async function reloadAllTabs() {
   }
 }
 
-// setTimeout(() => {
 document.getElementById('loading').style.display = 'none';
-// }, 313);
-// document.getElementById('loading').style.display = 'none';
 

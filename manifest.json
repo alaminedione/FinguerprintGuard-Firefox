@@ -1,37 +1,43 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "FingerprintGuard",
     "version": "2.0.0",
-    "description": "protege la vie privée des utilisateurs en usurpant les informations du navigateur. (gratuite et open source)",
+    "description": "Protege la vie privée des utilisateurs en usurpant les informations du navigateur. (gratuite et open source)",
+    "applications": {
+        "gecko": {
+            "id": "fingerprintguard@fingerprintjs.com"
+        }
+    },
     "permissions": [
         "storage",
         "scripting",
         "declarativeNetRequest",
-        "contentSettings",
         "webNavigation",
-        "tabs"
-    ],
-    "host_permissions": [
+        "tabs",
         "<all_urls>"
     ],
-    "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "icons/icon16.png",
-            "48": "icons/icon48.png",
-            "128": "icons/icon128.png"
-        }
-    },
-    "options_ui": {
-        "page": "settings.html",
-        "open_in_tab": true
-    },
     "background": {
-        "service_worker": "background.js"
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
     },
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
+    },
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/icon16.png",
+            "48": "icons/icon48.png",
+            "128": "icons/icon128.png"
+        },
+        "default_title": "FingerprintGuard"
+    },
+    "options_ui": {
+        "page": "settings.html",
+        "open_in_tab": true
     }
 }

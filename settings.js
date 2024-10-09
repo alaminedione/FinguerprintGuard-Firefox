@@ -55,7 +55,7 @@ const saveStatus = document.getElementById('saveStatus');
 // Chargement des paramètres au démarrage
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const stored = await chrome.storage.sync.get(Object.keys(defaultSettings));
+    const stored = await browser.storage.sync.get(Object.keys(defaultSettings));
     currentSettings = { ...defaultSettings, ...stored };
     updateInterface();
   } catch (error) {
@@ -150,12 +150,12 @@ saveButton.addEventListener('click', async () => {
 
   try {
     // Sauvegarde des paramètres
-    await chrome.storage.sync.set(newSettings);
+    await browser.storage.sync.set(newSettings);
     currentSettings = { ...newSettings };
     showStatus('Paramètres enregistrés avec succès', 'success');
 
     // Notification au background script
-    await chrome.runtime.sendMessage({
+    await browser.runtime.sendMessage({
       type: 'updateSetting',
       settings: newSettings
     });
